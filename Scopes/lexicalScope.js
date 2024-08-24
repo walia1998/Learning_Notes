@@ -58,3 +58,33 @@ function fun() {
 console.log(teacher);//Ashish Walia
 fun();  //Sania
 console.log(teachingAssistant);
+
+
+
+//AutoGlobal.js
+var teacher = 'Ashish Walia '
+function fun() {
+    var teacher = "Sania";
+    console.log(teachingAssistant);  // this is the case where teacherassisting is undeclared
+    teachingAssistant = "Kiran Walia"  // Auto Global variable which is global scope
+    console.log(teacher);
+    
+}
+
+function make() {
+    console.log(subject);
+    var subject = 'JS';
+    console.log(teacher)
+}
+console.log(teacher);//Ashish Walia
+fun();  //Sania ,error
+console.log(teachingAssistant);
+gun(); // undefined 
+
+
+
+/***
+ * undefined is a variable state when the scopes alresady know about it but in the execuytion phase we have not allocated it a Value where as indeclared is a variable state when we naever formnally declared a varibale and before a assigning a value so that it chance to become autoglobal we try to use it. 
+ * 
+ * 
+ */
