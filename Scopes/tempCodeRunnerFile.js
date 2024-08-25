@@ -1,1 +1,1 @@
-gun()
+console.log(x, arr)
