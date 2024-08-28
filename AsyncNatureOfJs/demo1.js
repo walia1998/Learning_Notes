@@ -25,15 +25,3 @@ console.log("Halloo")
 
 
 
-function removeCharacter(str, charToRemove) {
-    // Use the replace method with a global regular expression to remove all occurrences
-    const result = str.replace(new RegExp(charToRemove, 'g'), '');
-    return result;
-}
-
-// Example usage:
-const originalString = "Hello, World!";
-const characterToRemove = "o";
-const newString = removeCharacter(originalString, characterToRemove);
-
-console.log(newString);  // Output: "Hell, Wrld!"
