@@ -1,0 +1,8 @@
+function test() {
+    for(var i = 0; i < 3; i++) { // var is global scope it's same every where
+        setTimeout(function exec() {
+            console.log(`i: ${i}`);
+        }, i*1000);
+    }
+}
+test();
