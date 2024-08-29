@@ -45,12 +45,47 @@ function uploadData(file, url) {
  *  the above will not work in read fashion
  */
 
+// let downloadPromise = fetchData("www.google.com");
+// downloadPromise.then(function processDownload(value) {
+//   console.log("Download promise fulflled");
+//   let writePromise = writeFile(value);
+//   writePromise.then(function processWrite(value) {
+//     console.log("Writing of fileCompleted");
+//     console.log(value);
+//   });
+// });
+
+
+
+
+// let downloadPromise = fetchData('www.google.com');
+// let x = downloadPromise.then(function processDownload(value) {
+//     console.log('Downloading is done with the following value', value);
+//     // return 'Ashish Walia';
+// })
+
+/**
+ * let downloadPromise = fetchData('www.google.com');
+downloadPromise.then(function processDownload(value) {
+    console.log('Downloading is done with the following value', value);
+    return 'Ashish Walia';
+ * 
+ * the .then function itself returns a new promise
+ */
+
+    // x.then(function process(value) {
+    //     console.log("the valye is" , value )
+    // })
+
+
 let downloadPromise = fetchData("www.google.com");
 downloadPromise.then(function processDownload(value) {
-  console.log("Download promise fulflled");
-  let writePromise = writeFile(value);
-  writePromise.then(function processWrite(value) {
-    console.log("Writing of fileCompleted");
-    console.log(value);
-  });
-});
+    onsole.log('Downloading is done with the following value', value);
+    return value;
+})
+.then(function processWrite(value) {
+    return writeFile(value);
+})
+.then(function processUpload(value) {
+    return uploadData(value, 'www.google.com');
+})
