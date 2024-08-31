@@ -38,16 +38,11 @@ function fetchData(url) {
     }, 5000);
   }
 
+let downladPromise = fetchData("www.google.com");
+let writePromise = writeFile("dummy data");
+let uploadPromise = uploadData("test.txt", "www.google.com")
+console.log("Start");
 
-async function processing () {
-   let downloadedData = await fetchData("www.google.com");
-   console.log("downloading await")
-   let file = await writeFile(downloadedData);
-   console.log('writing')
-   let uploadResponse = await uploadData(file, 'www.google.com');
-   console.log("completed : ", uploadResponse);
-
-   return true;
-}
-
-processing();
+Promise.all([downladPromise, writePromise, uploadPromise]).then(function process(value) {
+    console.log(value);
+})

@@ -29,7 +29,7 @@ function writeFile(data) {
 
 function uploadData(file, url) {
   return new Promise(function (resolve, reject) {
-    console.log("Upload started on url ", url, "filename is ", filename);
+    console.log("Upload started on url ", url, "filename is ", file);
     setTimeout(function processUpload() {
       let result = "Success";
       console.log("Uploading Done");

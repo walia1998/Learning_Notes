@@ -41,13 +41,14 @@ function fetchData(url) {
 
 async function processing () {
    let downloadedData = await fetchData("www.google.com");
-   console.log("downloading await")
+  
    let file = await writeFile(downloadedData);
-   console.log('writing')
-   let uploadResponse = await uploadData(file, 'www.google.com');
-   console.log("completed : ", uploadResponse);
+  let uploadResponse = await uploadData(file, 'www.google.com');
+  let uploadResponse1 = await uploadData(file, 'www.facebook.com');
+  let uploadResponse2 = await uploadData(file, 'www.youtube.com');
 
-   return true;
+
+   return uploadResponse;
 }
 
 processing();
