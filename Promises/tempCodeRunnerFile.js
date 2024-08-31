@@ -1,1 +1,2 @@
-return 'Ashish Walia';
+
+  .then(function processUpload(value) {

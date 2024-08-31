@@ -55,9 +55,6 @@ function uploadData(file, url) {
 //   });
 // });
 
-
-
-
 // let downloadPromise = fetchData('www.google.com');
 // let x = downloadPromise.then(function processDownload(value) {
 //     console.log('Downloading is done with the following value', value);
@@ -73,19 +70,19 @@ downloadPromise.then(function processDownload(value) {
  * the .then function itself returns a new promise
  */
 
-    // x.then(function process(value) {
-    //     console.log("the valye is" , value )
-    // })
-
+// x.then(function process(value) {
+//     console.log("the valye is" , value )
+// })
 
 let downloadPromise = fetchData("www.google.com");
-downloadPromise.then(function processDownload(value) {
-    onsole.log('Downloading is done with the following value', value);
+downloadPromise
+  .then(function processDownload(value) {
+    console.log("Downloading is done with the following value", value);
     return value;
-})
-.then(function processWrite(value) {
+  })
+  .then(function processWrite(value) {
     return writeFile(value);
-})
-.then(function processUpload(value) {
-    return uploadData(value, 'www.google.com');
-})
+  })
+  .then(function processUpload(value) {
+    return uploadData(value, "www.google.com");
+  });
