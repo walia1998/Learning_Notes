@@ -9,12 +9,24 @@ const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(logger);
 
 // Let's minmic the db using an array
 
 let blogsList = [];
 
-app.get("/blogs", (req, res) => {
+function logger(req,res,next) {
+  console.log(req.url);
+  console.log(req.body);
+  next();
+}
+
+function isAuthenicated(req,res,next) {
+  console.log("Yes user is authenticated");
+  next();
+}
+
+app.get("/blogs",isAuthenicated,(req, res) => {
   return res.status(200).json({
     data: blogsList,
     success: true,
